@@ -1,0 +1,68 @@
+:root{
+  color-scheme:dark;
+  --bg:#0d0d0d;--surface:#1a1a19;--surface-2:#232322;--line:rgba(255,255,255,.10);
+  --ink:#ffffff;--ink-2:#c3c2b7;--muted:#898781;
+  --accent:#3987e5;--good:#0ca30c;--warn:#c98500;--critical:#d03b3b;
+  --err-text:#f6c9c9;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+/* Acik tema - kurye ekraniyla ayni renk kararlari. */
+:root[data-theme="light"]{
+  color-scheme:light;
+  --bg:#f4f4f2;--surface:#ffffff;--surface-2:#f1f1ee;--line:rgba(11,11,11,.10);
+  --ink:#0b0b0a;--ink-2:#4b4a45;--muted:#83817a;
+  --err-text:#8a1f1f;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font:14px/1.5 var(--sans)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.muted{color:var(--muted);font-weight:400}
+h1{margin:0;font-size:19px}
+h2{margin:0 0 14px;font-size:15px}
+
+#loginView{display:grid;place-items:center;min-height:100vh;padding:24px}
+.login-card{width:min(360px,100%);background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px 22px;text-align:center}
+.login-card input{width:100%;min-height:46px;margin:16px 0 12px;padding:0 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);font-size:15px}
+button.primary{width:100%;min-height:46px;border-radius:12px;background:var(--accent);color:#06121f;font-weight:600}
+button.ghost{padding:8px 14px;border-radius:10px;background:var(--surface-2);color:var(--ink-2)}
+.err{color:var(--err-text);background:rgba(208,59,59,.15);border:1px solid rgba(208,59,59,.35);border-radius:10px;padding:10px}
+
+header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--line)}
+.card{margin:16px 22px;padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+.grid .courier{background:var(--surface-2);border-radius:12px;padding:12px}
+.grid .courier b{display:block;font-size:15px;margin-bottom:4px}
+.grid .courier .phone{color:var(--muted);font-size:12.5px}
+.rows{display:grid;gap:8px}
+.row{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:10px 12px;background:var(--surface-2);border-radius:10px;font-size:13px}
+.row .t2{grid-column:1;color:var(--muted);font-size:11.5px}
+.empty{color:var(--muted);padding:10px 0}
+
+.segbar{display:flex;gap:7px;margin:0 22px 14px;overflow-x:auto}
+.seg{flex:0 0 auto;padding:9px 14px;border-radius:10px;background:var(--surface);border:1px solid var(--line);color:var(--ink-2);font-size:13px;white-space:nowrap}
+.seg.active{background:var(--accent);border-color:var(--accent);color:#06121f;font-weight:600}
+.pane{display:none}
+.pane.active{display:block}
+
+.grid .courier{display:flex;flex-direction:column;gap:8px}
+.grid .courier .pin{display:inline-block;margin-top:2px;padding:3px 9px;border-radius:999px;background:rgba(57,135,229,.16);color:var(--accent);font-size:13px;font-weight:700;letter-spacing:.02em}
+.grid .courier .loc-on,.grid .courier .loc-stale,.grid .courier .loc-off{font-size:12px}
+.grid .courier .loc-on{color:var(--good, #0ca30c)}
+.grid .courier .loc-stale{color:var(--warn, #c98500)}
+.grid .courier .loc-off{color:var(--muted)}
+.grid .courier input{padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:13px}
+.grid .courier .save-row{display:flex;gap:6px}
+.grid .courier button.save{flex:1;padding:7px;border-radius:8px;background:var(--accent);color:#06121f;font-size:12px;font-weight:600}
+.grid .courier .saved{color:var(--good);font-size:11px}
+
+.dot{width:9px;height:9px;border-radius:50%;background:var(--good);box-shadow:0 0 8px rgba(12,163,12,.6)}
+.dot.off{background:var(--critical);box-shadow:0 0 8px rgba(208,59,59,.6)}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat-grid .stat{background:var(--surface-2);border-radius:12px;padding:14px 10px;text-align:center}
+.stat-grid .stat .n{font-size:19px;font-weight:800}
+.stat-grid .stat .l{font-size:11.5px;color:var(--muted);margin-top:2px}
+
+#map{height:360px;border-radius:12px;overflow:hidden}
+.head-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.head-row input[type=date]{padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);font:inherit}

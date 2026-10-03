@@ -1,0 +1,15 @@
+{
+  "appName": "Ensari Kurye Takip",
+  "server": "DESKTOP-7IVJ7HN",
+  "database": "SAMBAPOS5",
+  "user": "sa",
+  "password": "DEGISTIR_BURAYA",
+  "options": {
+    "encrypt": false,
+    "trustServerCertificate": true
+  },
+  "port": 4021,
+  "managerPhone": "05XXXXXXXXX",
+  "whatsappApiUrl": "http://localhost:3055",
+  "publicUrl": ""
+}

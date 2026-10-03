@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kurye Takip - Yönetim</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="/admin/style.css?v=2">
+</head>
+<body>
+
+<div id="loginView" class="screen">
+  <div class="login-card">
+    <h1>Kurye Takip — Yönetim</h1>
+    <input id="password" type="password" inputmode="numeric" placeholder="SambaPOS Yönetici PIN" autofocus>
+    <button id="loginBtn" class="primary">Giriş yap</button>
+    <p id="loginErr" class="err" hidden></p>
+  </div>
+</div>
+
+<div id="mainView" class="screen" hidden>
+  <header>
+    <div style="display:flex;align-items:center;gap:9px"><h1>Kurye Takip — Yönetim</h1><span id="connDot" class="dot off"></span></div>
+    <div style="display:flex;gap:8px">
+      <button id="themeToggle" class="ghost" aria-label="Tema değiştir">🌙</button>
+      <button id="logoutBtn" class="ghost">Çıkış</button>
+    </div>
+  </header>
+
+  <div class="segbar">
+    <button class="seg active" data-pane="pane-genel">Genel</button>
+    <button class="seg" data-pane="pane-kuryeler">Kuryeler</button>
+    <button class="seg" data-pane="pane-harita">Harita</button>
+    <button class="seg" data-pane="pane-raporlar">Raporlar</button>
+    <button class="seg" data-pane="pane-olaylar">Olaylar</button>
+  </div>
+
+  <div id="pane-genel" class="pane active">
+    <section class="card">
+      <h2>Bugün</h2>
+      <div class="stat-grid">
+        <div class="stat"><div class="n" id="statDelivered">—</div><div class="l">Teslim edilen</div></div>
+        <div class="stat"><div class="n" id="statRevenue">—</div><div class="l">Tahsilat</div></div>
+        <div class="stat"><div class="n" id="statActiveCouriers">—</div><div class="l">Aktif kurye</div></div>
+      </div>
+    </section>
+    <section class="card">
+      <h2>Dışarıdan erişim linki</h2>
+      <div id="tunnelBox" class="rows"><p class="empty">Yükleniyor…</p></div>
+    </section>
+    <section class="card">
+      <h2>Aktif siparişler <span id="orderCount" class="muted"></span></h2>
+      <div id="orders" class="rows"></div>
+    </section>
+  </div>
+
+  <div id="pane-kuryeler" class="pane">
+    <section class="card">
+      <h2>Kuryeler ve telefon numaraları</h2>
+      <p class="muted" style="margin:0 0 12px">Telefon numaraları sadece bu panelde tutulur, SambaPOS'a yazılmaz.</p>
+      <div id="couriers" class="grid"></div>
+    </section>
+  </div>
+
+  <div id="pane-harita" class="pane">
+    <section class="card">
+      <h2>Canlı kurye konumları</h2>
+      <div id="map"></div>
+      <div id="locationList" class="rows" style="margin-top:12px"></div>
+    </section>
+  </div>
+
+  <div id="pane-raporlar" class="pane">
+    <section class="card">
+      <div class="head-row">
+        <h2>Teslimat raporu</h2>
+        <input id="reportDate" type="date">
+      </div>
+      <div id="reportRows" class="rows"></div>
+    </section>
+    <section class="card">
+      <h2>Kurye bazlı durum</h2>
+      <p class="muted" style="margin:0 0 12px">Bekleyen/yoldaki paketler her zaman şu anki durumu gösterir; teslim edilen seçilen tarihe aittir.</p>
+      <div id="courierBreakdown" class="rows"></div>
+    </section>
+  </div>
+
+  <div id="pane-olaylar" class="pane">
+    <section class="card">
+      <h2>Son olaylar</h2>
+      <div id="events" class="rows"></div>
+    </section>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="/admin/app.js?v=2"></script>
+</body>
+</html>

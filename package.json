@@ -1,0 +1,13 @@
+{
+  "name": "ensari-kurye-takip",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Ensari POS - SambaPOS kurye atamalarini kurye telefonuna dusuren takip sistemi.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "iconv-lite": "^0.7.3",
+    "ws": "^8.18.0"
+  }
+}
